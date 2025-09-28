@@ -1,0 +1,76 @@
+// Settings component styles
+.cds--grid {
+  padding: 2rem;
+}
+
+h1 {
+  margin-bottom: 0.5rem;
+  color: var(--cds-text-primary);
+}
+
+h3 {
+  margin-bottom: 1rem;
+  color: var(--cds-text-primary);
+}
+
+p {
+  margin-bottom: 2rem;
+  color: var(--cds-text-secondary);
+}
+
+.setting-group {
+  margin-bottom: 1.5rem;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--cds-border-subtle);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  span:first-child {
+    color: var(--cds-text-secondary);
+    font-weight: 500;
+  }
+
+  span:last-child {
+    color: var(--cds-text-primary);
+  }
+}
+
+.status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  &.enabled {
+    background-color: var(--cds-support-success-inverse);
+    color: var(--cds-text-success);
+  }
+
+  &.disabled {
+    background-color: var(--cds-support-error-inverse);
+    color: var(--cds-text-error);
+  }
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  button {
+    width: 100%;
+  }
+}
+
+[cds-tile] {
+  margin-bottom: 1rem;
+}

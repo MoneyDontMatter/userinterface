@@ -1,0 +1,74 @@
+// Transactions component styles
+.cds--grid {
+  padding: 2rem;
+}
+
+h1 {
+  margin-bottom: 0.5rem;
+  color: var(--cds-text-primary);
+}
+
+h3 {
+  margin-bottom: 1rem;
+  color: var(--cds-text-primary);
+}
+
+p {
+  margin-bottom: 2rem;
+  color: var(--cds-text-secondary);
+}
+
+.transaction-list {
+  margin-top: 1rem;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--cds-border-subtle);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.transaction-description {
+  flex: 1;
+  color: var(--cds-text-primary);
+}
+
+.transaction-amount {
+  margin-right: 2rem;
+  font-weight: 600;
+  color: var(--cds-text-error);
+
+  &.positive {
+    color: var(--cds-text-success);
+  }
+}
+
+.transaction-date {
+  color: var(--cds-text-secondary);
+  font-size: 0.875rem;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+
+  span:first-child {
+    color: var(--cds-text-secondary);
+  }
+
+  span:last-child {
+    font-weight: 600;
+    color: var(--cds-text-error);
+
+    &.positive {
+      color: var(--cds-text-success);
+    }
+  }
+}

@@ -10,7 +10,8 @@ import {
   GridModule,
   TilesModule,
   HeaderModule,
-  UIShellModule
+  UIShellModule,
+  IconModule
 } from 'carbon-components-angular';
 
 @NgModule({
@@ -24,7 +25,8 @@ import {
     GridModule,
     TilesModule,
     HeaderModule,
-    UIShellModule
+    UIShellModule,
+    IconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

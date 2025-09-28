@@ -1,1 +1,14 @@
-<router-outlet></router-outlet>
+<!-- Carbon Design System Header -->
+<cds-header name="Montage">
+  <cds-header-navigation>
+    <cds-header-item routerLink="/home">Home</cds-header-item>
+    <cds-header-item routerLink="/transactions">Transactions</cds-header-item>
+    <cds-header-item routerLink="/accounts">Accounts</cds-header-item>
+    <cds-header-item routerLink="/settings">Settings</cds-header-item>
+  </cds-header-navigation>
+</cds-header>
+
+<!-- Content -->
+<main class="cds--content">
+  <router-outlet></router-outlet>
+</main>

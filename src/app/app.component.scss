@@ -1,0 +1,13 @@
+// Montage App styles with Carbon Design System
+.cds--content {
+  margin-top: 3rem; // Account for fixed header
+  min-height: calc(100vh - 3rem);
+  background-color: var(--cds-background);
+}
+
+// Global styles for Carbon components
+:host {
+  display: block;
+  width: 100%;
+  height: 100vh;
+}
