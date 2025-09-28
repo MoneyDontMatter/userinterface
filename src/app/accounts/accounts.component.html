@@ -1,55 +1,73 @@
 <div class="cds--grid">
   <div class="cds--row">
-    <div class="cds--col-lg-12">
+    <div class="cds--col-lg-8">
       <h1>Accounts</h1>
-      <p>Manage your financial accounts and view balances</p>
+      <p>Manage your financial accounts organized by category</p>
     </div>
-  </div>
-
-  <div class="cds--row">
     <div class="cds--col-lg-4">
-      <div cds-tile class="account-tile">
-        <h3>Checking Account</h3>
-        <div class="account-number">****1234</div>
-        <div class="account-balance">$2,428.18</div>
-        <button cdsButton type="button" kind="secondary" size="sm">View Details</button>
-      </div>
-    </div>
-
-    <div class="cds--col-lg-4">
-      <div cds-tile class="account-tile">
-        <h3>Savings Account</h3>
-        <div class="account-number">****5678</div>
-        <div class="account-balance">$12,850.45</div>
-        <button cdsButton type="button" kind="secondary" size="sm">View Details</button>
-      </div>
-    </div>
-
-    <div class="cds--col-lg-4">
-      <div cds-tile class="account-tile">
-        <h3>Credit Card</h3>
-        <div class="account-number">****9012</div>
-        <div class="account-balance credit">-$1,234.56</div>
-        <button cdsButton type="button" kind="secondary" size="sm">View Details</button>
+      <div class="toggle-controls">
+        <button
+          cdsButton
+          type="button"
+          kind="secondary"
+          size="sm"
+          (click)="toggleAccountNumbers()"
+          class="account-toggle-btn">
+          <span>{{ showAccountNumbers ? '🙈 Hide' : '👁️ Show' }} Account Numbers</span>
+        </button>
       </div>
     </div>
   </div>
 
-  <div class="cds--row">
+  <!-- Account Categories -->
+  <div *ngFor="let category of accountCategories" class="category-section">
+    <div class="cds--row">
+      <div class="cds--col-lg-12">
+        <h2 class="category-title">
+          <span class="category-icon">{{ category.icon }}</span>
+          {{ category.name }}
+        </h2>
+      </div>
+    </div>
+
+    <div class="cds--row">
+      <div class="cds--col-lg-12">
+        <div cds-tile class="account-list-tile">
+          <div class="account-list">
+            <div class="account-item" *ngFor="let account of category.accounts">
+              <div class="account-info">
+                <div class="account-name">{{ account.name }}</div>
+                <div class="account-number">{{ getDisplayAccountNumber(account.accountNumber, account.fullAccountNumber) }}</div>
+              </div>
+              <div class="account-amount"
+                   [ngClass]="{'credit': account.balance < 0, 'positive': account.balance > 0}">
+                {{ account.balance | currency:'USD':'symbol':'1.2-2' }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary Section -->
+  <div class="cds--row summary-section">
     <div class="cds--col-lg-6">
       <div cds-tile>
         <h3>Account Overview</h3>
         <div class="overview-item">
           <span>Total Assets:</span>
-          <span class="positive">$15,278.63</span>
+          <span class="positive">{{ getTotalAssets() | currency:'USD':'symbol':'1.2-2' }}</span>
         </div>
         <div class="overview-item">
           <span>Total Liabilities:</span>
-          <span class="negative">-$1,234.56</span>
+          <span class="negative">{{ getTotalLiabilities() | currency:'USD':'symbol':'1.2-2' }}</span>
         </div>
         <div class="overview-item total">
           <span>Net Worth:</span>
-          <span class="positive">$14,044.07</span>
+          <span [ngClass]="{'positive': getNetWorth() > 0, 'negative': getNetWorth() < 0}">
+            {{ getNetWorth() | currency:'USD':'symbol':'1.2-2' }}
+          </span>
         </div>
       </div>
     </div>
